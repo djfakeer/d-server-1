@@ -1,1 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060d0a">
+<title>Lucifer Enemies Fucker 🖕</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═════════════════════ Lucifer v2 • DESIGN SYSTEM ═════════════════════ */
+:root{
+  --bg:#060d0a; --bg2:#0a1410; --panel:rgba(16,28,22,.66); --panel2:rgba(22,38,30,.8);
+  --border:rgba(163,255,205,.09); --border2:rgba(163,255,205,.2);
+  --text:#e9f6ee; --muted:#7e968a;
+  --green:#25d366; --green2:#00a884; --teal:#2dd4bf;
+  --violet:#b18cff; --red:#ff5d73; --amber:#ffc94d; --cyan:#4cc9f0;
+  --r:18px; --accent:var(--green);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;min-height:100vh;overflow-x:hidden}
+.display{font-family:'Unbounded',sans-serif}
+.mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+::selection{background:rgba(37,211,102,.35)}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#1c3328;border-radius:99px}
+::-webkit-scrollbar-thumb:hover{background:#2a4a3a}
 
+/* ── atmosphere ── */
+.fx{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(900px 480px at 80% -8%,rgba(37,211,102,.10),transparent 62%),
+             radial-gradient(760px 460px at -6% 34%,rgba(45,212,191,.07),transparent 60%),
+             radial-gradient(700px 520px at 52% 112%,rgba(177,140,255,.06),transparent 62%),var(--bg)}
+.fx::before{content:'';position:absolute;inset:0;opacity:.05;
+  background-image:linear-gradient(rgba(163,255,205,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(163,255,205,.5) 1px,transparent 1px);
+  background-size:46px 46px;mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 78%)}
+.fx::after{content:'';position:absolute;inset:0;opacity:.045;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.glow-orb{position:fixed;border-radius:50%;filter:blur(110px);z-index:-1;opacity:.5;animation:drift 16s ease-in-out infinite}
+.g1{width:460px;height:460px;background:rgba(37,211,102,.13);top:-160px;right:-100px}
+.g2{width:380px;height:380px;background:rgba(45,212,191,.10);bottom:-140px;left:-120px;animation-delay:-6s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,36px)}}
+
+/* ── splash ── */
+#splash{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;flex-direction:column;gap:18px;
+  align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#splash.off{opacity:0;visibility:hidden}
+.sp-logo{font-family:'Unbounded';font-weight:900;font-size:44px;letter-spacing:8px;color:var(--text);animation:spPulse 1.4s ease infinite}
+.sp-logo b{color:var(--green)}
+.sp-bar{width:180px;height:3px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.sp-bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--green),var(--teal));border-radius:99px;animation:spLoad 1.1s ease-in-out infinite}
+@keyframes spLoad{0%{transform:translateX(-110%)}100%{transform:translateX(320%)}}
+@keyframes spPulse{0%,100%{opacity:1}50%{opacity:.75}}
+
+/* ── layout helpers ── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.hidden{display:none!important}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row.center{justify-content:center}
+.spread{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stack{display:flex;flex-direction:column;gap:18px}
+@media(max-width:920px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.sec-tag{font-family:'JetBrains Mono';font-size:11px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:10px;display:block}
+
+/* ── buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;border-radius:13px;
+  padding:12px 20px;font-size:14px;font-weight:600;color:var(--text);background:rgba(255,255,255,.05);
+  border:1px solid var(--border);transition:.18s;white-space:nowrap;font-family:'Space Grotesk'}
+.btn:hover{border-color:var(--border2);transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-primary{background:linear-gradient(135deg,#2ee27a,#00a868);color:#03150a;border:none;font-weight:700;
+  box-shadow:0 8px 26px rgba(37,211,102,.32),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-primary:hover{box-shadow:0 10px 34px rgba(37,211,102,.5)}
+.btn-violet{background:linear-gradient(135deg,#b18cff,#7c4dff);color:#fff;border:none;box-shadow:0 8px 26px rgba(177,140,255,.3)}
+.btn-danger{background:linear-gradient(135deg,#ff5d73,#e02647);color:#fff;border:none;box-shadow:0 6px 22px rgba(255,93,115,.28)}
+.btn-ghost{background:transparent}
+.btn-sm{padding:8px 13px;font-size:12.5px;border-radius:10px}
+.btn-block{width:100%}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+
+/* ── inputs ── */
+.lbl{display:flex;flex-direction:column;gap:7px;font-size:11.5px;font-weight:600;color:var(--muted);
+  letter-spacing:1.4px;text-transform:uppercase;flex:1;min-width:0}
+.inp{width:100%;background:rgba(3,10,7,.55);border:1px solid var(--border);border-radius:13px;padding:12px 14px;
+  color:var(--text);font-size:14px;font-family:'Space Grotesk';outline:none;transition:.2s}
+.inp:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(37,211,102,.13)}
+textarea.inp{resize:vertical;min-height:100px}
+select.inp{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237e968a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+select.inp option{background:#0c1713;color:var(--text)}
+.form-grid{display:flex;flex-direction:column;gap:16px}
+
+/* ── dropzone ── */
+.dropzone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;
+  border:1.5px dashed rgba(163,255,205,.25);border-radius:16px;padding:26px 16px;cursor:pointer;transition:.2s;background:rgba(3,10,7,.3)}
+.dropzone:hover,.dropzone.drag{border-color:var(--green);background:rgba(37,211,102,.06)}
+.dropzone.has-file{border-style:solid;border-color:rgba(37,211,102,.55);background:rgba(37,211,102,.07)}
+.dz-ic{font-size:30px}
+.dz-tx{font-size:13px;color:var(--muted)}.dz-tx b{color:var(--green)}
+.dz-name{font-family:'JetBrains Mono';font-size:11.5px;color:var(--teal);word-break:break-all}
+
+/* ── cards ── */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:24px;
+  backdrop-filter:blur(14px);transition:border-color .25s}
+.card:hover{border-color:var(--border2)}
+.card-h{margin-bottom:18px}
+.card-h h3{font-size:18px;font-weight:700;display:flex;align-items:center;gap:9px}
+.card-h p{color:var(--muted);font-size:13px;margin-top:4px}
+
+/* ── badges ── */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:.5px}
+.b-green{background:rgba(37,211,102,.13);color:var(--green);border:1px solid rgba(37,211,102,.35)}
+.b-red{background:rgba(255,93,115,.11);color:var(--red);border:1px solid rgba(255,93,115,.35)}
+.b-amber{background:rgba(255,201,77,.11);color:var(--amber);border:1px solid rgba(255,201,77,.35)}
+.b-cyan{background:rgba(76,201,240,.11);color:var(--cyan);border:1px solid rgba(76,201,240,.35)}
+.b-violet{background:rgba(177,140,255,.12);color:var(--violet);border:1px solid rgba(177,140,255,.35)}
+.b-gray{background:rgba(126,150,138,.12);color:var(--muted);border:1px solid rgba(126,150,138,.3)}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dot.g{background:var(--green);box-shadow:0 0 9px var(--green)}
+.dot.r{background:var(--red);box-shadow:0 0 9px var(--red)}
+.pulse{animation:pulse 1.6s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ═════════════════════ LANDING ═════════════════════ */
+.l-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(6,13,10,.7);border-bottom:1px solid var(--border)}
+.l-nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-cube{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-family:'Unbounded';font-weight:900;font-size:18px;color:#03150a;
+  background:linear-gradient(135deg,#2ee27a,#00a868);box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.brand-name{font-family:'Unbounded';font-weight:800;font-size:19px;letter-spacing:4px}
+.brand-name em{color:var(--green);font-style:normal}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:74px 0 60px}
+@media(max-width:980px){.hero{grid-template-columns:1fr;text-align:center}.hero-left .row{justify-content:center}}
+.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:99px;font-size:12.5px;font-weight:600;
+  border:1px solid rgba(37,211,102,.35);background:rgba(37,211,102,.07);color:var(--green);margin-bottom:24px}
+.hero h1{font-family:'Unbounded';font-weight:900;font-size:clamp(48px,8vw,96px);letter-spacing:6px;line-height:1;
+  text-shadow:0 0 70px rgba(37,211,102,.35)}
+.hero h1 em{color:var(--green);font-style:normal}
+.hero-sub{margin-top:18px;font-size:15px;color:var(--muted);line-height:1.75;max-width:520px}
+@media(max-width:980px){.hero-sub{margin-left:auto;margin-right:auto}}
+.hero-cta{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap}
+.hs b{font-family:'Unbounded';font-size:20px;color:var(--green)}
+.hs span{display:block;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+
+/* phone mockup */
+.phone-wrap{display:flex;justify-content:center}
+.phone{width:330px;max-width:100%;border-radius:40px;background:#0b141a;border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 46px 100px rgba(0,0,0,.65),0 0 0 9px rgba(255,255,255,.025),0 0 90px rgba(37,211,102,.14);
+  overflow:hidden;transform:rotate(2.2deg);animation:phoneFloat 7s ease-in-out infinite}
+@keyframes phoneFloat{0%,100%{transform:rotate(2.2deg) translateY(0)}50%{transform:rotate(2.2deg) translateY(-13px)}}
+.chat-head{display:flex;gap:11px;align-items:center;padding:15px 16px;background:#1f2c34;border-bottom:1px solid rgba(255,255,255,.06)}
+.chat-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2ee27a,#00a868);display:flex;align-items:center;justify-content:center;font-family:'Unbounded';font-weight:800;color:#03150a}
+.chat-head b{font-size:14px;display:block}
+.chat-head small{color:#53bdeb;font-size:11px}
+.chat-body{height:392px;padding:16px 14px;display:flex;flex-direction:column;gap:9px;overflow-y:auto;
+  background:radial-gradient(circle at 30% 20%,rgba(37,211,102,.05),transparent 40%),#0b141a}
+.msg{max-width:80%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.45;animation:msgIn .45s cubic-bezier(.2,.9,.3,1.25)}
+.msg.in{align-self:flex-start;background:#1f2c34;border-bottom-left-radius:3px}
+.msg.out{align-self:flex-end;background:#005c4b;border-bottom-right-radius:3px}
+.msg small{display:block;text-align:right;font-size:9.5px;color:rgba(255,255,255,.45);margin-top:3px}
+.msg.typing{display:flex;gap:5px;padding:13px 15px}
+.msg.typing span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);animation:tp 1s ease infinite}
+.msg.typing span:nth-child(2){animation-delay:.15s}.msg.typing span:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-5px);opacity:1}}
+@keyframes msgIn{from{opacity:0;transform:translateY(14px) scale(.92)}to{opacity:1;transform:none}}
+.chat-foot{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#1f2c34}
+.chat-foot .fake{flex:1;background:#2a3942;border-radius:99px;padding:9px 16px;font-size:12px;color:rgba(255,255,255,.4)}
+.chat-foot .mic{width:38px;height:38px;border-radius:50%;background:var(--green2);display:flex;align-items:center;justify-content:center;font-size:16px}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:16px;margin-top:26px}
+.b-tile{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:22px;overflow:hidden;
+  position:relative;transition:.3s;backdrop-filter:blur(12px)}
+.b-tile:hover{border-color:rgba(37,211,102,.4);transform:translateY(-4px)}
+.b-tile h4{font-size:15.5px;margin-bottom:7px;display:flex;gap:8px;align-items:center}
+.b-tile p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.b-a{grid-column:span 2;grid-row:span 2}
+.b-b{grid-column:span 2}
+.b-c{grid-column:span 1}
+@media(max-width:920px){.bento{grid-template-columns:1fr 1fr}.b-a{grid-column:span 2;grid-row:span 2}}
+@media(max-width:600px){.bento{grid-template-columns:1fr}.b-a,.b-b{grid-column:span 1}}
+.term{background:#04120c;border:1px solid rgba(37,211,102,.2);border-radius:13px;padding:14px;margin-top:14px;
+  font-family:'JetBrains Mono';font-size:11.5px;height:calc(100% - 76px);overflow:hidden;display:flex;flex-direction:column;gap:7px}
+.tl{opacity:0;animation:tlIn .4s forwards;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl.ok{color:var(--green)}.tl.info{color:var(--cyan)}.tl.warn{color:var(--amber)}.tl.dim{color:#4a6355}
+@keyframes tlIn{to{opacity:1}}
+.tl:nth-child(1){animation-delay:.3s}.tl:nth-child(2){animation-delay:.9s}.tl:nth-child(3){animation-delay:1.5s}
+.tl:nth-child(4){animation-delay:2.1s}.tl:nth-child(5){animation-delay:2.7s}.tl:nth-child(6){animation-delay:3.3s}
+.tl:nth-child(7){animation-delay:3.9s}.tl:nth-child(8){animation-delay:4.5s}
+.mini-code{display:flex;gap:6px;margin-top:14px;justify-content:center}
+.mini-code span{width:30px;height:38px;border-radius:8px;background:rgba(37,211,102,.1);border:1px dashed rgba(37,211,102,.45);
+  display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:700;color:var(--green);font-size:15px}
+.media-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.media-chip{flex:1;min-width:70px;text-align:center;padding:13px 8px;border-radius:13px;background:rgba(3,10,7,.4);
+  border:1px solid var(--border);font-size:12px;color:var(--muted)}
+.media-chip b{display:block;font-size:21px;margin-bottom:5px}
+.cta-band{margin:70px 0 0;padding:52px 30px;text-align:center;border-radius:26px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(37,211,102,.14),rgba(45,212,191,.07));border:1px solid rgba(37,211,102,.3)}
+.foot{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted);font-size:13px;margin-top:70px}
+
+/* ═════════════════════ AUTH ═════════════════════ */
+.auth-wrap{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:44px 20px}
+.auth-card{width:100%;max-width:440px;background:var(--panel);border:1px solid var(--border);border-radius:26px;
+  padding:40px 36px;backdrop-filter:blur(18px);box-shadow:0 34px 90px rgba(0,0,0,.55);animation:authIn .5s cubic-bezier(.2,.9,.3,1.1)}
+@keyframes authIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.auth-logo{text-align:center;margin-bottom:28px}
+.auth-logo .cube{width:58px;height:58px;border-radius:18px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;
+  font-family:'Unbounded';font-weight:900;font-size:26px;color:#03150a;background:linear-gradient(135deg,#2ee27a,#00a868);
+  box-shadow:0 12px 34px rgba(37,211,102,.45)}
+.auth-logo .cube.violet{background:linear-gradient(135deg,#b18cff,#7c4dff);color:#fff;box-shadow:0 12px 34px rgba(177,140,255,.4)}
+.auth-logo h2{font-family:'Unbounded';font-size:21px;letter-spacing:5px}
+.auth-logo p{color:var(--muted);font-size:13px;margin-top:7px}
+.auth-alt{text-align:center;margin-top:22px;color:var(--muted);font-size:13.5px}
+.auth-alt a{color:var(--green);font-weight:600}
+
+/* ═════════════════════ APP SHELL ═════════════════════ */
+.shell{display:flex;min-height:100vh}
+.sidebar{width:254px;flex-shrink:0;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+  background:rgba(8,17,12,.82);border-right:1px solid var(--border);backdrop-filter:blur(18px);padding:20px 14px;z-index:60}
+.s-brand{display:flex;align-items:center;gap:11px;padding:6px 10px 20px}
+.s-brand .brand-cube{width:36px;height:36px;font-size:16px}
+.s-brand .nm{font-family:'Unbounded';font-weight:800;font-size:16px;letter-spacing:3px;line-height:1}
+.s-brand .nm small{display:block;font-family:'JetBrains Mono';font-size:8.5px;letter-spacing:4px;color:var(--green);margin-top:4px;font-weight:400}
+.s-nav{display:flex;flex-direction:column;gap:5px;flex:1}
+.s-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:13px;color:var(--muted);font-weight:600;
+  font-size:13.5px;border:1px solid transparent;cursor:pointer;transition:.18s;background:none;text-align:left;width:100%}
+.s-item:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.s-item.on{color:var(--green);background:rgba(37,211,102,.09);border-color:rgba(37,211,102,.28)}
+.s-item .ic{font-size:16px;width:22px;text-align:center}
+.shell.admin .s-item.on{color:var(--violet);background:rgba(177,140,255,.09);border-color:rgba(177,140,255,.3)}
+.s-health{margin:14px 0;padding:14px;border-radius:15px;background:rgba(3,10,7,.5);border:1px solid var(--border);font-size:11.5px}
+.s-health .sh-top{display:flex;align-items:center;gap:8px;font-weight:700;font-size:12px;margin-bottom:9px}
+.s-health .sh-row{display:flex;justify-content:space-between;color:var(--muted);margin-top:5px}
+.s-health .sh-row b{color:var(--text);font-family:'JetBrains Mono';font-size:11px}
+.s-user{display:flex;align-items:center;gap:11px;padding:13px 10px;border-top:1px solid var(--border)}
+.s-avatar{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#2ee27a,#00a868);color:#03150a;
+  display:flex;align-items:center;justify-content:center;font-family:'Unbounded';font-weight:800;flex-shrink:0}
+.shell.admin .s-avatar{background:linear-gradient(135deg,#b18cff,#7c4dff);color:#fff}
+.s-umeta{min-width:0;flex:1}.s-umeta b{font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-umeta span{font-size:11px;color:var(--muted)}
+.s-out{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(255,93,115,.1);
+  border:1px solid rgba(255,93,115,.25);color:var(--red);cursor:pointer;font-size:15px;transition:.2s;flex-shrink:0}
+.s-out:hover{background:rgba(255,93,115,.22)}
+.shell-main{flex:1;min-width:0;display:flex;flex-direction:column}
+.appbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 28px;background:rgba(6,13,10,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.ab-title h1{font-family:'Unbounded';font-size:19px;font-weight:700;letter-spacing:1px}
+.ab-title p{font-size:12px;color:var(--muted);margin-top:2px}
+.ab-right{display:flex;align-items:center;gap:13px}
+.kbd-btn{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);background:rgba(255,255,255,.04);
+  border:1px solid var(--border);border-radius:9px;padding:7px 11px;cursor:pointer;transition:.2s}
+.kbd-btn:hover{color:var(--text);border-color:var(--border2)}
+.clock{font-size:13px;color:var(--teal)}
+.burger{display:none;background:none;border:1px solid var(--border);border-radius:10px;color:var(--text);
+  font-size:17px;width:38px;height:38px;cursor:pointer}
+.content{padding:30px 28px 80px;flex:1;max-width:1240px;width:100%;margin:0 auto}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:55}
+@media(max-width:960px){
+  .sidebar{position:fixed;left:0;top:0;transform:translateX(-105%);transition:transform .3s cubic-bezier(.2,.9,.3,1)}
+  .sidebar.open{transform:none}
+  .sb-overlay.show{display:block}
+  .burger{display:block}
+  .appbar{padding:14px 18px}.content{padding:22px 18px 70px}
+  .clock,.kbd-btn{display:none}
+}
+
+/* ── stats ── */
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:24px}
+@media(max-width:1080px){.stats-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:17px;padding:18px;overflow:hidden;transition:.25s}
+.stat-card:hover{transform:translateY(-3px);border-color:var(--border2)}
+.stat-card::before{content:'';position:absolute;top:0;left:18px;right:18px;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.6}
+.stat-card .ic{font-size:19px}
+.stat-card .val{font-family:'Unbounded';font-size:23px;font-weight:700;margin-top:9px}
+.stat-card .lb{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:1.4px;margin-top:4px}
+
+/* ── tabs ── */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.tab{padding:9px 17px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--muted);
+  font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;font-family:'Space Grotesk'}
+.tab:hover{color:var(--text)}
+.tab.active{background:rgba(37,211,102,.12);color:var(--green);border-color:rgba(37,211,102,.45);box-shadow:0 4px 18px rgba(37,211,102,.15)}
+
+/* ── tables ── */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:15px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+.tbl th{text-align:left;padding:13px 16px;color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:1.4px;
+  border-bottom:1px solid var(--border);background:rgba(3,10,7,.5)}
+.tbl td{padding:13px 16px;border-bottom:1px solid rgba(163,255,205,.05)}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody tr:hover td{background:rgba(37,211,102,.03)}
+
+/* ── lists ── */
+.list-item{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:15px 17px;
+  border:1px solid var(--border);border-radius:16px;background:rgba(3,10,7,.35);margin-bottom:10px;transition:.2s}
+.list-item:hover{border-color:var(--border2)}
+.li-main{display:flex;align-items:center;gap:13px;min-width:0}
+.li-num{font-family:'Unbounded';font-weight:600;font-size:15px}
+.li-sub{color:var(--muted);font-size:12px;margin-top:2px}
+.avatar{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:19px;
+  background:linear-gradient(135deg,rgba(37,211,102,.18),rgba(45,212,191,.12));border:1px solid rgba(37,211,102,.3);flex-shrink:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:99px;font-size:11.5px;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted)}
+
+/* ── tasks ── */
+.task-card{border:1px solid var(--border);border-radius:17px;padding:19px;background:rgba(3,10,7,.35);margin-bottom:14px;transition:.2s}
+.task-card:hover{border-color:var(--border2)}
+.task-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:11px}
+.task-meta{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:12.5px;margin-bottom:13px}
+.task-meta b{color:var(--text)}
+.progress{height:7px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.progress i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--teal));
+  box-shadow:0 0 14px rgba(37,211,102,.5);transition:width .6s}
+
+/* ── logs ── */
+.log-viewer{background:#04100a;border:1px solid var(--border);border-radius:15px;padding:14px;max-height:390px;overflow-y:auto;
+  font-family:'JetBrains Mono';font-size:12px;display:flex;flex-direction:column;gap:6px}
+.log-line{padding:8px 11px;border-radius:9px;border-left:3px solid var(--muted);background:rgba(255,255,255,.03);word-break:break-word}
+.log-line.success{border-left-color:var(--green)}
+.log-line.error{border-left-color:var(--red)}
+.log-line.warning{border-left-color:var(--amber)}
+.log-line.info{border-left-color:var(--cyan)}
+.log-line .ld{color:var(--muted);font-size:10.5px;display:block;margin-top:3px}
+
+/* ── pairing code ── */
+.code-boxes{display:flex;gap:8px;justify-content:center;margin:22px 0;flex-wrap:wrap}
+.code-cell{width:46px;height:58px;border-radius:13px;background:rgba(37,211,102,.09);border:1px solid rgba(37,211,102,.45);
+  display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:700;font-size:26px;color:var(--green);
+  text-shadow:0 0 18px rgba(37,211,102,.6);animation:cellIn .4s backwards}
+.code-cell:nth-child(2){animation-delay:.06s}.code-cell:nth-child(3){animation-delay:.12s}.code-cell:nth-child(4){animation-delay:.18s}
+.code-cell:nth-child(5){animation-delay:.24s}.code-cell:nth-child(6){animation-delay:.3s}.code-cell:nth-child(7){animation-delay:.36s}.code-cell:nth-child(8){animation-delay:.42s}
+@keyframes cellIn{from{opacity:0;transform:translateY(12px) scale(.8)}to{opacity:1;transform:none}}
+.pair-timer{text-align:center;font-family:'JetBrains Mono';font-size:13px;color:var(--amber);margin-bottom:14px}
+
+/* ── modal ── toast ── cmd ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(2,6,4,.8);backdrop-filter:blur(9px);z-index:120;
+  display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .22s}
+.modal{width:100%;max-width:540px;max-height:88vh;overflow-y:auto;background:#0c1712;border:1px solid var(--border2);
+  border-radius:24px;padding:32px;animation:pop .3s cubic-bezier(.2,.9,.3,1.15);box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.modal-wide{max-width:780px}
+.modal-h{font-family:'Unbounded';font-size:18px;font-weight:700;margin-bottom:9px}
+.modal .x{float:right;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;width:32px;height:32px;
+  color:var(--muted);font-size:15px;cursor:pointer}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(14px)}to{opacity:1;transform:none}}
+#toasts{position:fixed;bottom:22px;right:22px;z-index:220;display:flex;flex-direction:column;gap:10px}
+.toast2{position:relative;min-width:290px;max-width:390px;display:flex;gap:13px;align-items:flex-start;padding:15px 17px;
+  border-radius:16px;background:#0c1712;border:1px solid var(--border2);box-shadow:0 18px 50px rgba(0,0,0,.55);
+  transform:translateX(130%);transition:transform .4s cubic-bezier(.2,.9,.3,1.2);overflow:hidden}
+.toast2.show{transform:none}
+.toast2 .t-ic{font-size:19px}
+.toast2 .t-tx{font-size:13.5px;font-weight:600;line-height:1.45}
+.toast2 .bar{position:absolute;bottom:0;left:0;height:3px;width:100%;animation:tbar 4.3s linear forwards}
+.toast-success .bar{background:var(--green)}.toast-error .bar{background:var(--red)}
+.toast-info .bar{background:var(--cyan)}.toast-warning .bar{background:var(--amber)}
+@keyframes tbar{from{width:100%}to{width:0}}
+.cmd-overlay{position:fixed;inset:0;background:rgba(2,6,4,.7);backdrop-filter:blur(7px);z-index:180;
+  display:flex;justify-content:center;padding:13vh 20px 20px;animation:fadeIn .15s}
+.cmd{width:100%;max-width:560px;height:fit-content;max-height:56vh;background:#0c1712;border:1px solid var(--border2);
+  border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6);display:flex;flex-direction:column}
+.cmd input{width:100%;background:none;border:none;border-bottom:1px solid var(--border);padding:17px 20px;color:var(--text);
+  font-size:15px;outline:none;font-family:'Space Grotesk'}
+.cmd-list{overflow-y:auto;padding:8px}
+.cmd-item{display:flex;align-items:center;gap:13px;padding:12px 14px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:500}
+.cmd-item:hover,.cmd-item.sel{background:rgba(37,211,102,.1)}
+.cmd-item .ci{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center}
+
+/* misc */
+.spinner{width:20px;height:20px;border:3px solid rgba(255,255,255,.12);border-top-color:var(--green);border-radius:50%;
+  animation:spin .7s linear infinite;display:inline-block;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{text-align:center;padding:38px 20px;color:var(--muted)}
+.empty .ei{font-size:42px;margin-bottom:12px;opacity:.75}
+.note{font-size:12px;color:var(--muted);line-height:1.6}
+.divider{height:1px;background:var(--border);margin:18px 0}
+</style>
+</head>
+<body>
+
+<div class="fx"></div>
+<div class="glow-orb g1"></div>
+<div class="glow-orb g2"></div>
+
+<div id="splash">
+  <div class="sp-logo">D<b>A</b>R<b>K</b>S<b>T</b>A<b>R</b></div>
+  <div class="sp-bar"><i></i></div>
+</div>
+
+<div id="app"></div>
+<div id="toasts"></div>
+<div id="modal-root"></div>
+<div id="cmd-root"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   Lucifer v2 • WhatsApp Automation Suite — Premium SPA Frontend
+   ═══════════════════════════════════════════════════════════════ */
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const el  = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
+
+/* ── pollers ── */
+let POLLERS = [], MODAL_POLLERS = [], LANDING_STOP = null;
+const every = (ms, fn) => { const id = setInterval(fn, ms); POLLERS.push(id); return id; };
+const modalEvery = (ms, fn) => { const id = setInterval(fn, ms); MODAL_POLLERS.push(id); return id; };
+function clearPollers(){ POLLERS.forEach(clearInterval); POLLERS = []; }
+
+/* ── toast v2 ── */
+const T_ICONS = { success:'✅', error:'❌', info:'💡', warning:'⚠️' };
+function toast(msg, type = 'info'){
+  const t = el('div', 'toast2 toast-' + type,
+    `<span class="t-ic">${T_ICONS[type] || '💡'}</span><span class="t-tx">${esc(msg)}</span><span class="bar"></span>`);
+  document.getElementById('toasts').appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4300);
+}
+
+/* ── modal ── */
+function openModal(html, wide = false){
+  closeModal();
+  document.getElementById('modal-root').innerHTML =
+    `<div class="modal-overlay" id="mOverlay"><div class="modal ${wide ? 'modal-wide' : ''}">
+       <button class="x" onclick="closeModal()">✕</button>${html}</div></div>`;
+  document.getElementById('mOverlay').addEventListener('click', e => { if (e.target.id === 'mOverlay') closeModal(); });
+}
+function closeModal(){
+  MODAL_POLLERS.forEach(clearInterval); MODAL_POLLERS = [];
+  document.getElementById('modal-root').innerHTML = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape'){ closeModal(); closeCmd(); } });
+
+function confirmBox(title, msg, danger = true){
+  return new Promise(res => {
+    openModal(`<div class="modal-h">${danger ? '⚠️' : '❓'} ${esc(title)}</div>
+      <p class="muted" style="font-size:13.5px;line-height:1.6">${esc(msg)}</p>
+      <div class="row" style="justify-content:flex-end;margin-top:22px">
+        <button class="btn btn-ghost" id="cfNo">Cancel</button>
+        <button class="btn ${danger ? 'btn-danger' : 'btn-primary'}" id="cfYes">Confirm</button>
+      </div>`);
+    document.getElementById('cfYes').onclick = () => { closeModal(); res(true); };
+    document.getElementById('cfNo').onclick  = () => { closeModal(); res(false); };
+  });
+}
+
+/* ── api ── */
+async function api(url, options = {}){
+  try{
+    const res = await fetch(url, { credentials: 'same-origin', ...options });
+    const ct = res.headers.get('content-type') || '';
+    if (ct.includes('application/json')) return await res.json();
+    if (res.redirected || ct.includes('text/html')){
+      location.href = location.pathname.includes('admin') ? '/admin-login' : '/login';
+      return { success:false, error:'Session expired' };
+    }
+    return { success:false, error:'Unexpected server response' };
+  }catch(e){ return { success:false, error:e.message }; }
+}
+const jsonPost = (url, body) => api(url, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body) });
+
+/* ── helpers ── */
+function timeAgo(ts){
+  if (!ts) return '—';
+  const s = Math.floor((Date.now() - ts) / 1000);
+  if (s < 60) return s + 's ago';
+  const m = Math.floor(s / 60); if (m < 60) return m + 'm ago';
+  const h = Math.floor(m / 60); if (h < 24) return h + 'h ago';
+  return Math.floor(h / 24) + 'd ago';
+}
+function formatSize(b){ if (b < 1024) return b + ' B'; if (b < 1048576) return (b/1024).toFixed(1) + ' KB'; return (b/1048576).toFixed(1) + ' MB'; }
+function countUp(node, target){
+  const start = performance.now(), dur = 950;
+  (function step(t){
+    const p = Math.min(1, (t - start) / dur), e = 1 - Math.pow(1 - p, 3);
+    node.textContent = Math.round(target * e);
+    if (p < 1) requestAnimationFrame(step);
+  })(start);
+}
+const TASK_ICONS = { message:'📝', image:'🖼️', video:'🎬', document:'📄', audio:'🎤' };
+const taskIcon = t => TASK_ICONS[t] || '📦';
+
+function bindDropzones(root){
+  root.querySelectorAll('[data-dz]').forEach(dz => {
+    const input = dz.querySelector('input[type=file]'), nm = dz.querySelector('.dz-name');
+    input.addEventListener('change', () => {
+      if (input.files[0]){ nm.textContent = '✅ ' + input.files[0].name + ' • ' + formatSize(input.files[0].size); dz.classList.add('has-file'); }
+    });
+    ['dragover','dragenter'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add('drag'); }));
+    ['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('drag'); }));
+    dz.addEventListener('drop', e => {
+      if (e.dataTransfer.files.length){ input.files = e.dataTransfer.files; input.dispatchEvent(new Event('change')); }
+    });
+  });
+}
+
+/* ═══════════════ COMMAND PALETTE (Ctrl+K) ═══════════════ */
+let CMD_ITEMS = [];
+const setCmd = items => CMD_ITEMS = items || [];
+function openCmd(){
+  if (!CMD_ITEMS.length) return;
+  const root = document.getElementById('cmd-root');
+  root.innerHTML = `<div class="cmd-overlay" id="cmdOv"><div class="cmd">
+    <input id="cmdInp" placeholder="Type a command… (dashboard, tag, logout…)" autocomplete="off">
+    <div class="cmd-list" id="cmdList"></div></div></div>`;
+  const inp = document.getElementById('cmdInp'), list = document.getElementById('cmdList');
+  function draw(q){
+    const f = CMD_ITEMS.filter(i => i.label.toLowerCase().includes((q || '').toLowerCase()));
+    list.innerHTML = f.map((i, idx) => `<div class="cmd-item ${idx === 0 ? 'sel' : ''}" data-ci="${esc(i.label)}">
+      <span class="ci">${i.ic}</span>${esc(i.label)}</div>`).join('') || '<div class="empty">No results</div>';
+    list.querySelectorAll('.cmd-item').forEach(n => n.onclick = () => run(n.dataset.ci));
+  }
+  function run(label){
+    const it = CMD_ITEMS.find(i => i.label === label); if (!it) return;
+    closeCmd();
+    if (it.href) location.href = it.href;
+    else if (it.go) go(it.go);
+    else if (it.act) it.act();
+  }
+  inp.oninput = () => draw(inp.value);
+  inp.onkeydown = e => {
+    if (e.key === 'Enter'){ const first = list.querySelector('.cmd-item'); if (first) run(first.dataset.ci); }
+  };
+  document.getElementById('cmdOv').addEventListener('click', e => { if (e.target.id === 'cmdOv') closeCmd(); });
+  draw(''); setTimeout(() => inp.focus(), 40);
+}
+function closeCmd(){ document.getElementById('cmd-root').innerHTML = ''; }
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openCmd(); }
+});
+
+/* ═══════════════ APP SHELL ═══════════════ */
+function shell(active, title, sub, content, admin = false){
+  const nav = admin
+    ? [['overview','📊','Overview'],['sessions','📱','Sessions'],['users','👥','Users'],['broadcast','📣','Broadcast']]
+    : [['/dashboard','📊','Dashboard','dash'],['/tag-all','📣','Tag All','tag'],['/task-logs','📜','Task Logs','logs']];
+  return `<div class="shell ${admin ? 'admin' : ''}">
+    <aside class="sidebar" id="sidebar">
+      <a class="s-brand" href="${admin ? '/admin-dashboard' : '/dashboard'}" data-link>
+        <span class="brand-cube">W</span>
+        <span class="nm">Lucifer<small>${admin ? 'LUCIFER ADMIN PANEL' : 'AUTOMATION v2'}</small></span>
+      </a>
+      <nav class="s-nav">
+        ${admin
+          ? nav.map(([k, ic, lb]) => `<button class="s-item ${k === 'overview' ? 'on' : ''}" data-asec="${k}"><span class="ic">${ic}</span>${lb}</button>`).join('')
+          : nav.map(([href, ic, lb, key]) => `<a class="s-item ${active === key ? 'on' : ''}" href="${href}" data-link><span class="ic">${ic}</span>${lb}</a>`).join('')}
+      </nav>
+      <div class="s-health" id="healthBox">
+        <div class="sh-top"><span class="dot g pulse"></span> Checking server…</div>
+      </div>
+      <div class="s-user">
+        <div class="s-avatar" id="sAvatar">W</div>
+        <div class="s-umeta"><b id="sName">${admin ? 'Administrator' : 'Loading…'}</b><span id="sMail">${admin ? 'root access' : ''}</span></div>
+        <a class="s-out" href="/logout" title="Logout">⏻</a>
+      </div>
+    </aside>
+    <div class="shell-main">
+      <header class="appbar">
+        <div class="row">
+          <button class="burger" id="burger">☰</button>
+          <div class="ab-title"><h1>${title}</h1><p>${sub}</p></div>
+        </div>
+        <div class="ab-right">
+          <button class="kbd-btn" id="cmdBtn">⌘ Ctrl+K</button>
+          <span class="clock mono" id="clock">--:--:--</span>
+          <span class="dot g pulse" id="pingDot" title="Server status"></span>
+        </div>
+      </header>
+      <main class="content">${content}</main>
+    </div>
+    <div class="sb-overlay" id="sbOverlay"></div>
+  </div>`;
+}
+
+function bootShell(v, admin){
+  /* clock */
+  const clock = v.querySelector('#clock');
+  every(1000, () => clock.textContent = new Date().toLocaleTimeString('en-US', { hour12: false }));
+  /* health widget */
+  async function health(){
+    const h = await api('/health');
+    const box = v.querySelector('#healthBox'), ping = v.querySelector('#pingDot');
+    if (h.status){
+      ping.className = 'dot g pulse';
+      box.innerHTML = `<div class="sh-top"><span class="dot g pulse"></span> Server Online</div>
+        <div class="sh-row"><span>Uptime</span><b>${esc(h.uptime)}</b></div>
+        <div class="sh-row"><span>Memory</span><b>${esc(h.memory.used)}</b></div>
+        <div class="sh-row"><span>Active tasks</span><b>${h.activeTasks}</b></div>`;
+    } else { ping.className = 'dot r'; box.innerHTML = '<div class="sh-top"><span class="dot r"></span> Server offline</div>'; }
+  }
+  health(); every(25000, health);
+  /* user chip */
+  if (!admin){
+    api('/api/user-profile').then(p => {
+      if (p.username){
+        v.querySelector('#sName').textContent = p.username;
+        v.querySelector('#sMail').textContent = p.email || '';
+        v.querySelector('#sAvatar').textContent = p.username[0].toUpperCase();
+      }
+    });
+  }
+  /* mobile sidebar */
+  const sb = v.querySelector('#sidebar'), ov = v.querySelector('#sbOverlay');
+  v.querySelector('#burger').onclick = () => { sb.classList.add('open'); ov.classList.add('show'); };
+  ov.onclick = () => { sb.classList.remove('open'); ov.classList.remove('show'); };
+  v.querySelector('#cmdBtn').onclick = openCmd;
+}
+
+/* profile modal (shared) */
+async function openProfileModal(){
+  const p = await api('/api/user-profile');
+  if (p.error) return toast(p.error, 'error');
+  openModal(`
+    <div class="modal-h">👤 ${esc(p.username)}</div>
+    <p class="muted" style="font-size:13px">Member since ${(p.createdAt || '').slice(0, 10)} • ${esc(p.email || '')}</p>
+    <div class="divider"></div>
+    <div class="grid-2" style="margin-bottom:20px">
+      <div class="stat-card"><div class="ic">🔗</div><div class="val">${p.activeSessions}</div><div class="lb">Sessions</div></div>
+      <div class="stat-card"><div class="ic">📨</div><div class="val">${p.totalMessagesSent}</div><div class="lb">Messages Sent</div></div>
+    </div>
+    <div class="modal-h" style="font-size:15px">🔒 Change Password</div>
+    <form id="cpForm" class="form-grid" style="margin-top:12px">
+      <label class="lbl">Current Password<input class="inp" type="password" name="currentPassword" required></label>
+      <label class="lbl">New Password<input class="inp" type="password" name="newPassword" required minlength="6"></label>
+      <button class="btn btn-primary btn-block" type="submit">Update Password</button>
+    </form>`);
+  document.getElementById('cpForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const r = await jsonPost('/change-password', { currentPassword: fd.get('currentPassword'), newPassword: fd.get('newPassword') });
+    if (r.success){ toast(r.message, 'success'); closeModal(); setTimeout(() => location.href = '/login', 1000); }
+    else toast(r.error || 'Failed', 'error');
+  });
+}
+
+/* ═══════════════ ROUTER ═══════════════ */
+const ROUTES = {
+  '/': viewLanding,
+  '/login': () => viewAuth('login'),
+  '/signup': () => viewAuth('signup'),
+  '/admin-login': viewAdminLogin,
+  '/dashboard': viewDashboard,
+  '/session-status': viewSessionStatus,
+  '/task-logs': viewTaskLogs,
+  '/tag-all': viewTagAll,
+  '/admin-dashboard': viewAdmin,
+};
+function go(path){ history.pushState({}, '', path); render(); }
+function render(){
+  clearPollers(); closeModal(); closeCmd();
+  if (LANDING_STOP){ LANDING_STOP(); LANDING_STOP = null; }
+  const fn = ROUTES[location.pathname] || viewLanding;
+  app.innerHTML = ''; app.appendChild(fn());
+  window.scrollTo(0, 0);
+}
+window.addEventListener('popstate', render);
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-link]');
+  if (a){ e.preventDefault(); go(a.getAttribute('href')); }
+});
+
+/* ═══════════════ LANDING ═══════════════ */
+function viewLanding(){
+  const v = el('div', '', `
+  <header class="l-nav"><div class="container l-nav-in">
+    <a href="/" class="brand" data-link><span class="brand-cube"><svg viewBox="0 0 24 24" width="42" height="42" aria-label="WhatsApp">
+      <path fill="#fff" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.15-1.31A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.09-1.12l-.29-.17-3.06.78.82-2.98-.19-.31A8 8 0 1 1 12 20Zm4.38-5.97c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.15 1.53.09.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/>
+    </svg>
+  </span>
+  <span class="brand-name" style="white-space:nowrap;">D<em>A</em>N<em>I</em>S<em>H</em> K<em>H</em>A<em>N</em></span>
+   <p class="hero-sub">
+      <a class="btn btn-ghost btn-sm" href="/login" data-link>Login</a>
+      <a class="btn btn-primary btn-sm" href="/signup" data-link>Get Started →</a>
+    </div>
+  </div></header>
+
+  <section class="container hero">
+    <div class="hero-left">
+      <div class="hero-pill"><span class="dot g pulse"></span> BUILD 2.0 • MULTI-SESSION • INFINITE RECONNECT</div>
+      <h1 class="display">W<em>H</em>A<em>T</em>S<em>A</em>P<em>P</em> S<em>E</em>RV<em>ER✅</em></h1>
+      <p class="hero-sub">WhatsApp ka full automation command center — pairing-code sessions, text &amp; media blasts,
+        bulk broadcast, live logs aur admin control. Sab kuch ek modern dashboard mein, powered by Baileys.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/signup" data-link>🚀 Start Automating</a>
+        <a class="btn btn-ghost" href="/login" data-link>🔑 Login</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><b>6+</b><span>Blast Modes</span></div>
+        <div class="hs"><b>∞</b><span>Auto Reconnect</span></div>
+        <div class="hs"><b class="mono" id="landUptime">…</b><span>Server Uptime</span></div>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="chat-head">
+         <div class="cube">
+  <svg viewBox="0 0 24 24" width="60" height="60">
+    <path fill="#fff" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.18-1.32A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.13l-.29-.17-3.08.78.8-3.01-.19-.3A8 8 0 1 1 12 20zm4.39-5.98c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.39 1.37.5.58.18 1.1.15 1.51.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+  </svg>
+</div>
+     <h1 class="display" style="font-size:14px !important; white-space:nowrap; width:max-content;">
+WHATSAPP<em> BOT💖</em></h1>
+          <span style="opacity:.6">📞 ⋮</span>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-foot"><div class="fake">Message</div><div class="mic">🎤</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <span class="sec-tag">01 / Command Center</span>
+    <h2 class="display" style="font-size:30px">Sab kuch, ek jagah.</h2>
+    <div class="bento">
+      <div class="b-tile b-a">
+        <h4>⚙️ Live Task Engine</h4>
+        <p>Har send, har retry, har reconnect — real-time logs ke saath.</p>
+        <div class="term">
+          <div class="tl dim">$ Lucifer --start task_8x2ka9</div>
+          <div class="tl ok">✔ Session connected • +91705040…</div>
+          <div class="tl info">ℹ Target: group 123456789@g.us</div>
+          <div class="tl ok">✔ Message #1 sent</div>
+          <div class="tl ok">✔ Message #2 sent</div>
+          <div class="tl warn">⚠ Delay 5s applied</div>
+          <div class="tl ok">✔ Message #3 sent</div>
+          <div class="tl info">▓▓▓▓▓░░░░░ 3/∞ • running…</div>
+        </div>
+      </div>
+      <div class="b-tile b-c">
+        <h4>🔗 Pairing Code</h4>
+        <p>Bina QR — seedha code se connect.</p>
+        <div class="mini-code"><span>8</span><span>F</span><span>2</span><span>K</span><span>9</span><span>Q</span><span>X</span><span>Z</span></div>
+      </div>
+      <div class="b-tile b-c">
+        <h4>🔄 Infinite Reconnect</h4>
+        <p>Disconnect? Auto-recover with exponential backoff. Tasks bhi auto-resume.</p>
+      </div>
+      <div class="b-tile b-b">
+        <h4>🎯 Every Media Type</h4>
+        <div class="media-row">
+          <div class="media-chip"><b>📝</b>Text</div>
+          <div class="media-chip"><b>🖼️</b>Image</div>
+          <div class="media-chip"><b>🎬</b>Video</div>
+          <div class="media-chip"><b>📄</b>Docs</div>
+          <div class="media-chip"><b>🎤</b>Voice</div>
+          <div class="media-chip"><b>📣</b>Bulk</div>
+        </div>
+      </div>
+      <div class="b-tile b-c">
+        <h4>🛡️ Lucifer Admin Panel</h4>
+        <p>Users, sessions, broadcast — full override.</p>
+      </div>
+      <div class="b-tile b-c">
+        <h4>⏯ Pause / Resume</h4>
+        <p>Task ko kabhi bhi rokein, wahin se dobara chalein.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="cta-band">
+      <span class="sec-tag" style="margin-bottom:14px">02 / Ready?</span>
+      <h2 class="display" style="font-size:32px;margin-bottom:12px">Admin Panel Lucifer.</h2>
+      <p class="muted" style="max-width:460px;margin:0 auto 26px;font-size:14px">Free account banayein, WhatsApp connect karein, aur pehla blast kuch hi seconds mein.</p>
+      <div class="row center">
+        <a class="btn btn-primary" href="/signup" data-link>✨ Create Account</a>
+        <a class="btn btn-ghost" href="/admin-login" data-link>🛡️ Admin</a>
+      </div>
+    </div>
+  </section>
+  <footer class="foot"><div class="container">💬 <b>Lucifer 🔥</b> — WhatsApp Automation Suite • Powered by Baileys • ${new Date().getFullYear()}</div></footer>`);
+
+  /* uptime pill */
+  api('/health').then(h => { if (h.uptime) v.querySelector('#landUptime').textContent = h.uptime; });
+
+  /* chat simulation */
+  const script = [
+    { from:'in',  text:'Lucifer Sir, mera number connect karo 🔗' },
+    { from:'out', text:'Pairing code Lo Connect Karo: <b>8F2K-9QXZ</b> ✅' },
+    { from:'in',  text:'Mere group par Mere Hetars Ke Mkc Par  500 messages blast kar Do Lucifer Sir 📣' },
+    { from:'out', text:'Task started — sending… 🚀' },
+    { from:'out', text:'Progress: 250/500 ▓▓▓▓▓░░░░░' },
+    { from:'out', text:'Done! 500/500 delivered ✔✔ 🎉' },
+      { from:'in', text:'Okey Lucifer Sir' },
+      { from:'out', text:'Heters Teri Maiyya Ki Chut Lucifer Ne Faadni Shuru Kardi' },
+      { from:'out', text:'Herters Suck My Dick Gandu 😘✅' },
+  ];
+  const box = v.querySelector('#chatBody');
+  let i = 0, stopped = false;
+  function addMsg(m){
+    const d = el('div', 'msg ' + m.from, m.text + '<small>' + new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}) + (m.from === 'out' ? ' ✓✓' : '') + '</small>');
+    box.appendChild(d); box.scrollTop = box.scrollHeight;
+  }
+  function next(){
+    if (stopped) return;
+    if (i >= script.length){ setTimeout(() => { if (!stopped){ box.innerHTML = ''; i = 0; next(); } }, 3800); return; }
+    const m = script[i];
+    if (m.from === 'out'){
+      const tp = el('div', 'msg in typing', '<span></span><span></span><span></span>');
+      box.appendChild(tp); box.scrollTop = box.scrollHeight;
+      setTimeout(() => { if (stopped) return; tp.remove(); addMsg(m); i++; setTimeout(next, 1500); }, 1150);
+    } else { addMsg(m); i++; setTimeout(next, 1400); }
+  }
+  setTimeout(next, 700);
+  LANDING_STOP = () => { stopped = true; };
+  return v;
+}
+
+/* ═══════════════ AUTH ═══════════════ */
+function viewAuth(mode){
+  const isLogin = mode === 'login';
+  const v = el('div', '', `
+  <header class="l-nav"><div class="container l-nav-in">
+    <a href="/" class="brand" data-link><span class="brand-name">D<em>A</em>N<em>I</em>S<em>H </em>K<em>H</em>A<em>N</em></span></a>
+  </div></header>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+       <div class="cube">
+  <svg viewBox="0 0 24 24" width="60" height="60">
+    <path fill="#fff" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.18-1.32A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.13l-.29-.17-3.08.78.8-3.01-.19-.3A8 8 0 1 1 12 20zm4.39-5.98c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.39 1.37.5.58.18 1.1.15 1.51.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+  </svg>
+</div>
+      <h2 style="font-size:25px;letter-spacing:1px;line-height:1.3;text-align:center;font-family:'UnifrakturCook','Old English Text MT',serif;font-weight:900;text-shadow:2px 2px 4px #000;">
+<span style="display:block;white-space:nowrap;">D<em style="color:#25d366;font-style:normal">A</em>RK<em style="color:#25d366;font-style:normal">S</em>TAR OFF<em style="color:#25d366;font-style:normal">L</em>INE</span>
+<span style="display:block;white-space:nowrap;">W<em style="color:#25d366;font-style:normal">H</em>AT<em style="color:#25d366;font-style:normal">S</em>APP S<em style="color:#25d366;font-style:normal">E</em>R<em style="color:#25d366;font-style:normal">V</em>ER💖</span>
+</h2>
+        <p>${isLogin ? 'Apne automation dashboard mein login karein' : 'Free account banayein — 30 seconds mein'}</p>
+      </div>
+      <form id="authForm" class="form-grid">
+        <label class="lbl">Username<input class="inp" name="username" placeholder="Your username" required autocomplete="username"></label>
+        ${isLogin ? '' : '<label class="lbl">Email<input class="inp" type="email" name="email" placeholder="you@example.com" required></label>'}
+        <label class="lbl">Password<input class="inp" type="password" name="password" placeholder="••••••••" required minlength="${isLogin ? 1 : 6}"></label>
+        <button class="btn btn-primary btn-block" type="submit" id="authBtn">${isLogin ? '🔓 Login' : '✨ Create Account'}</button>
+      </form>
+      <div class="auth-alt">
+        ${isLogin
+          ? `Account nahi hai? <a href="/signup" data-link>Sign Up</a><br><br><a href="/admin-login" data-link class="muted">🛡️ Admin Login</a>`
+          : `Pehle se account hai? <a href="/login" data-link>Login</a>`}
+      </div>
+    </div>
+  </div>`);
+  v.querySelector('#authForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = v.querySelector('#authBtn');
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+    const fd = new FormData(e.target);
+    const body = { username: fd.get('username'), password: fd.get('password') };
+    if (!isLogin) body.email = fd.get('email');
+    const r = await jsonPost(isLogin ? '/login' : '/signup', body);
+    btn.disabled = false;
+    if (r.success){ toast(isLogin ? 'Login successful! ✅' : 'Account created! 🎉', 'success'); setTimeout(() => location.href = r.redirect || '/dashboard', 600); }
+    else { toast(r.error || 'Failed', 'error'); btn.innerHTML = isLogin ? '🔓 Login' : '✨ Create Account'; }
+  });
+  return v;
+}
+
+function viewAdminLogin(){
+  const v = el('div', '', `
+  <header class="l-nav"><div class="container l-nav-in">
+<a href="/" class="brand" data-link>
+  <span class="brand-cube">
+    <svg viewBox="0 0 24 24" width="42" height="42" aria-label="WhatsApp">
+      <path fill="#fff" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.15-1.31A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.09-1.12l-.29-.17-3.06.78.82-2.98-.19-.31A8 8 0 1 1 12 20Zm4.38-5.97c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.15 1.53.09.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/>
+    </svg>
+  </span>
+  <span class="brand-name">D<em>A</em>N<em>I</em>S<em>H</em> K<em>H</em>A<em>N</em></span>
+</a>
+  </div></header>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+       <div class="cube">
+  <svg viewBox="0 0 24 24" width="60" height="60">
+    <path fill="#fff" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.18-1.32A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.13l-.29-.17-3.08.78.8-3.01-.19-.3A8 8 0 1 1 12 20zm4.39-5.98c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.39 1.37.5.58.18 1.1.15 1.51.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+  </svg>
+</div>
+        <h2>ADMIN ACCESS</h2>
+        <p>Restricted area — authorized personnel only</p>
+      </div>
+      <form id="adminForm" class="form-grid">
+        <label class="lbl">Admin Username<input class="inp" name="username" required></label>
+        <label class="lbl">Admin Password<input class="inp" type="password" name="password" required></label>
+        <button class="btn btn-violet btn-block" type="submit" id="abtn">🛡️ Enter Lucifer Admin Panel</button>
+      </form>
+      <div class="auth-alt"><a href="/login" data-link>← User Login</a></div>
+    </div>
+  </div>`);
+  v.querySelector('#adminForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const r = await jsonPost('/admin-login', { username: fd.get('username'), password: fd.get('password') });
+    if (r.success){ toast('Admin authenticated ✅', 'success'); setTimeout(() => location.href = '/admin-dashboard', 600); }
+    else toast(r.error || 'Invalid credentials', 'error');
+  });
+  return v;
+}
+
+/* ═══════════════ DASHBOARD ═══════════════ */
+function viewDashboard(){
+  const hour = new Date().getHours();
+  const greet = hour < 12 ? 'Good Morning ☀️' : hour < 17 ? 'Good Afternoon 🌤' : hour < 21 ? 'Good Evening 🌆' : 'Good Night 🌙';
+
+  const v = el('div', '', shell('dash', 'ι αм α ∂єνιℓ σf му ωσяℓ∂', greet + ' — apne sessions &amp; tasks control karein', `
+    <div class="stats-grid">
+    ${[['🔗','—','connV','Connected'],['📱','—','sessV','Sessions'],['▶️','—','runV','Running'],['⏸','—','stopV','Stopped'],['📨','—','sentV','Messages'],['⏱','—','upV','Uptime']]
+        .map(([ic,,id,lb]) => `<div class="stat-card"><div class="ic">${ic}</div><div class="val" id="${id}">0</div><div class="lb">${lb}</div></div>`).join('')}
+    </div>
+
+    <div class="grid-2" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-h"><h3>🔗 Connect WhatsApp</h3><p>Number likhein — pairing code milega, bina QR ke</p></div>
+        <form id="pairForm" class="form-grid">
+          <label class="lbl">Phone Number (country code ke saath)
+            <input class="inp" id="pairNumber" placeholder="e.g. 917050407246" required></label>
+          <button class="btn btn-primary" type="submit">⚡ Generate Pairing Code</button>
+        </form>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>🔎 Number Checker</h3><p>Check karein ke number WhatsApp par exist karta hai</p></div>
+        <form id="checkForm" class="form-grid">
+          <label class="lbl">Session<select class="inp" id="checkSession"></select></label>
+          <label class="lbl">Phone Number<input class="inp" id="checkNumber" placeholder="e.g. 917050407246" required></label>
+          <button class="btn btn-ghost" type="submit">🔍 Check on WhatsApp</button>
+          <div id="checkResult"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="spread card-h">
+        <div><h3>📱 Your Sessions</h3><p>Connected numbers &amp; unki live halat</p></div>
+        <button class="btn btn-ghost btn-sm" id="refreshSessions">🔄 Refresh</button>
+      </div>
+      <div id="sessionsList"><div class="empty"><span class="spinner"></span></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><h3>🚀 Send Center</h3><p>Text • Image • Video • Document • Voice • Bulk</p></div>
+      <label class="lbl" style="max-width:430px;margin-bottom:14px">WhatsApp Session
+        <select class="inp" id="sendSession"></select></label>
+      <div class="tabs" id="sendTabs">
+        <button class="tab active" data-tab="text">📝 Massage Text</button>
+        <button class="tab" data-tab="image">🖼️ Image</button>
+        <button class="tab" data-tab="video">🎬 Video</button>
+        <button class="tab" data-tab="document">📄 Document</button>
+        <button class="tab" data-tab="voice">🎤 Voice</button>
+        <button class="tab" data-tab="bulk">📣 Bulk</button>
+      </div>
+      <div id="panels"></div>
+    </div>
+  `));
+  app.appendChild ? null : null;
+
+  bootShell(v, false);
+  setCmd([
+    { ic:'📊', label:'Dashboard', go:'/dashboard' },
+    { ic:'📣', label:'Tag All', go:'/tag-all' },
+    { ic:'📜', label:'Task Logs', go:'/task-logs' },
+    { ic:'🔗', label:'Connect WhatsApp', act:() => v.querySelector('#pairNumber')?.focus() },
+    { ic:'👤', label:'Profile & Password', act:openProfileModal },
+    { ic:'⏻', label:'Logout', href:'/logout' },
+  ]);
+
+  /* stats */
+  async function loadStats(){
+    const s = await api('/api/stats');
+    if (!s.user) return;
+    countUp(v.querySelector('#connV'), s.user.connectedSessions);
+    countUp(v.querySelector('#sessV'), s.user.totalSessions);
+    countUp(v.querySelector('#runV'),  s.user.runningTasks);
+    countUp(v.querySelector('#stopV'), s.user.stoppedTasks);
+    countUp(v.querySelector('#sentV'), s.user.totalMessagesSent);
+    v.querySelector('#upV').textContent = s.server.uptime;
+  }
+
+  /* sessions */
+  let flatSessions = [];
+  async function loadSessions(){
+    const data = await api('/api/get-numbers');
+    const box = v.querySelector('#sessionsList');
+    if (!Array.isArray(data) || data.length === 0){
+      box.innerHTML = '<div class="empty"><div class="ei">📭</div>Koi session nahi — upar se WhatsApp connect karein</div>';
+    } else {
+      flatSessions = data.flatMap(n => n.sessions.map(s => ({ ...s, number: n.number })));
+      box.innerHTML = data.map(n => `
+        <div class="list-item">
+          <div class="li-main">
+            <div class="avatar">📱</div>
+            <div><div class="li-num">+${esc(n.number)}</div><div class="li-sub">${n.sessions.length} session(s)</div></div>
+          </div>
+          <div class="row">
+            ${n.sessions.map(s => `<span class="chip"><span class="dot ${s.isConnected ? 'g' : 'r'}"></span>${esc(s.sessionId.slice(0,12))}… ${s.runningTasksCount ? '• ▶' + s.runningTasksCount : ''}</span>`).join('')}
+            ${n.sessions.map(s => `
+              <a class="btn btn-ghost btn-sm" href="/session-status?sessionId=${esc(s.sessionId)}" data-link>Open →</a>
+              <button class="btn btn-danger btn-sm" data-stopsess="${esc(s.sessionId)}">Stop</button>`).join('')}
+          </div>
+        </div>`).join('');
+    }
+    const opts = flatSessions.sort((a, b) => b.isConnected - a.isConnected)
+      .map(s => `<option value="${esc(s.sessionId)}">${esc(s.number)} ${s.isConnected ? '🟢' : '🔴'}</option>`).join('');
+    v.querySelector('#sendSession').innerHTML = opts || '<option value="">— no sessions —</option>';
+    v.querySelector('#checkSession').innerHTML = opts || '<option value="">— no sessions —</option>';
+  }
+
+  v.addEventListener('click', async e => {
+    const st = e.target.closest('[data-stopsess]');
+    if (!st) return;
+    if (!await confirmBox('Stop Session?', 'Session permanently delete ho jayega — tasks bhi.')) return;
+    const r = await jsonPost('/stop-session', { sessionId: st.dataset.stopsess });
+    toast(r.message || r.error, r.success ? 'success' : 'error');
+    if (r.success) loadSessions();
+  });
+  v.querySelector('#refreshSessions').onclick = loadSessions;
+
+  /* pairing */
+  v.querySelector('#pairForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const num = v.querySelector('#pairNumber').value.trim();
+    if (!num) return;
+    openModal(`<div class="modal-h">⚡ Connecting…</div><p class="muted">Pairing code generate ho raha hai…</p>
+      <div class="center" style="margin-top:18px"><span class="spinner"></span></div>`);
+    const r = await jsonPost('/generate-pairing-code', { number: num });
+    if (r.success){
+      openModal(`
+        <div class="modal-h">🔗 Pairing Code</div>
+        <p class="muted" style="font-size:13px">WhatsApp → Settings → <b>Linked Devices</b> → <b>Link with Phone Number</b></p>
+        <div class="pair-timer">⏳ expires in <b id="pairTimer">10:00</b></div>
+        <div class="code-boxes">${r.code.split('').map(c => `<span class="code-cell">${esc(c)}</span>`).join('')}</div>
+        <p class="muted center" style="font-size:13px">Number: <b>+${esc(r.number)}</b></p>
+        <div class="row center" style="margin-top:18px">
+          <button class="btn btn-primary" id="copyCodeBtn">📋 Copy Code</button>
+          <a class="btn btn-ghost" href="/session-status?sessionId=${esc(r.sessionId)}" data-link>Open Session →</a>
+        </div>`);
+      let secs = 600;
+      modalEvery(1000, () => {
+        secs--; const t = document.getElementById('pairTimer');
+        if (t) t.textContent = Math.floor(secs/60) + ':' + String(secs%60).padStart(2,'0');
+        if (secs <= 0) closeModal();
+      });
+      document.getElementById('copyCodeBtn').onclick = () => { navigator.clipboard?.writeText(r.code); toast('Code copied! 📋', 'success'); };
+      loadSessions(); loadStats();
+    } else { closeModal(); toast(r.error || 'Pairing failed', 'error'); }
+  });
+
+  /* number check */
+  v.querySelector('#checkForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const sessionId = v.querySelector('#checkSession').value, number = v.querySelector('#checkNumber').value.trim();
+    if (!sessionId) return toast('Pehle session select karein', 'warning');
+    const r = await jsonPost('/api/check-number', { sessionId, number });
+    v.querySelector('#checkResult').innerHTML = r.success
+      ? (r.exists ? `<span class="badge b-green">✅ +${esc(r.number)} WhatsApp par hai</span>` : `<span class="badge b-red">❌ +${esc(r.number)} nahi mila</span>`)
+      : `<span class="badge b-red">${esc(r.error)}</span>`;
+  });
+
+  /* send center */
+  const panels = v.querySelector('#panels');
+  const targetBlock = `
+    <div class="grid-2">
+      <label class="lbl">Target Type
+        <select name="targetType" class="inp tt-sel">
+          <option value="number">📱 Phone Number</option>
+          <option value="group">👥 WhatsApp Group</option>
+        </select></label>
+      <label class="lbl">Target<div class="tgt-box"></div></label>
+    </div>`;
+  const delayBlock = `
+    <div class="grid-2">
+      <label class="lbl">Delay (seconds)<input class="inp" name="delaySec" type="number" min="1" value="5" required></label>
+      <label class="lbl">Prefix / Caption (optional)<input class="inp" name="prefix" placeholder="hetars name text…"></label>
+    </div>`;
+  const dz = (name, accept, ic, tx) => `
+    <label class="dropzone" data-dz>
+      <input type="file" name="${name}" accept="${accept}" hidden required>
+      <div class="dz-ic">${ic}</div>
+      <div class="dz-tx">${tx} — drop karein ya <b>browse</b></div>
+      <div class="dz-name"></div>
+    </label>`;
+
+  panels.innerHTML = `
+    <form class="panel form-grid" data-panel="text" data-ep="/send-message">${targetBlock}
+      ${dz('messageFile', '.txt', '📝', 'Messages .txt file')}${delayBlock}
+      <button class="btn btn-primary" type="submit">🚀 Start Text Blast</button></form>
+    <form class="panel form-grid hidden" data-panel="image" data-ep="/send-image">${targetBlock}
+      ${dz('imageFile', 'image/*', '🖼️', 'Image file')}${delayBlock}
+      <button class="btn btn-primary" type="submit">🖼️ Start Image Blast</button></form>
+    <form class="panel form-grid hidden" data-panel="video" data-ep="/send-video">${targetBlock}
+      ${dz('videoFile', 'video/*', '🎬', 'Video file (MP4)')}${delayBlock}
+      <button class="btn btn-primary" type="submit">🎬 Start Video Blast</button></form>
+    <form class="panel form-grid hidden" data-panel="document" data-ep="/send-document">${targetBlock}
+      ${dz('docFile', '*', '📄', 'Document file')}
+      <div class="grid-2">
+        <label class="lbl">File Name (optional)<input class="inp" name="fileName" placeholder="original name"></label>
+        <label class="lbl">Delay (seconds)<input class="inp" name="delaySec" type="number" min="1" value="5" required></label>
+      </div>
+      <label class="lbl">Caption (optional)<input class="inp" name="prefix"></label>
+      <button class="btn btn-primary" type="submit">📄 Start Document Blast</button></form>
+    <form class="panel form-grid hidden" data-panel="voice" data-ep="/send-voice">${targetBlock}
+      ${dz('audioFile', 'audio/*', '🎤', 'Audio file (.ogg / .mp3)')}
+      <label class="lbl">Delay (seconds)<input class="inp" name="delaySec" type="number" min="1" value="5" required></label>
+      <button class="btn btn-primary" type="submit">🎤 Start Voice Blast</button></form>
+    <form class="panel form-grid hidden" data-panel="bulk" data-ep="/send-bulk">
+      <label class="lbl">Targets (ek number / group-ID per line)
+        <textarea class="inp" name="targets" placeholder="917996352002&#10;917996352002" required></textarea></label>
+      <label class="lbl">Target Type
+        <select name="targetType" class="inp"><option value="number">📱 Phone Numbers</option><option value="group">👥 Groups</option></select></label>
+      ${dz('messageFile', '.txt', '📝', 'Messages .txt file')}${delayBlock}
+      <button class="btn btn-primary" type="submit">📣 Start Bulk Broadcast</button></form>`;
+
+  v.querySelector('#sendTabs').addEventListener('click', e => {
+    const b = e.target.closest('.tab'); if (!b) return;
+    v.querySelectorAll('#sendTabs .tab').forEach(t => t.classList.remove('active'));
+    b.classList.add('active');
+    panels.querySelectorAll('.panel').forEach(p => p.classList.add('hidden'));
+    panels.querySelector(`[data-panel="${b.dataset.tab}"]`)?.classList.remove('hidden');
+  });
+
+  async function loadGroupsInto(sel){
+    const sessionId = v.querySelector('#sendSession').value;
+    if (!sessionId){ sel.innerHTML = '<option value="">— pehle upar session select karein —</option>'; return; }
+    sel.innerHTML = '<option value="">Loading groups…</option>';
+    const r = await api('/get-groups?sessionId=' + encodeURIComponent(sessionId));
+    if (!r.success){ sel.innerHTML = `<option value="">${esc(r.error || 'Failed')}</option>`; return; }
+    sel.innerHTML = '<option value="">Select group…</option>' +
+      r.groups.map(g => `<option value="${esc(g.groupId)}">${esc(g.subject)} (${g.participantsCount} 👥)</option>`).join('');
+  }
+  panels.querySelectorAll('form').forEach(form => {
+    const box = form.querySelector('.tgt-box'), tt = form.querySelector('.tt-sel');
+    if (box && tt){
+      const mkInput = () => { const i = document.createElement('input'); i.className = 'inp'; i.name = 'target'; i.placeholder = 'e.g. 917996352002'; return i; };
+      box.appendChild(mkInput());
+      tt.addEventListener('change', async () => {
+        box.innerHTML = '';
+        if (tt.value === 'group'){ const s = document.createElement('select'); s.className = 'inp'; s.name = 'target'; box.appendChild(s); await loadGroupsInto(s); }
+        else box.appendChild(mkInput());
+      });
+    }
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const sessionId = v.querySelector('#sendSession').value;
+      if (!sessionId) return toast('Pehle WhatsApp session select karein!', 'warning');
+      const btn = form.querySelector('button[type=submit]'), old = btn.innerHTML;
+      btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Starting…';
+      const fd = new FormData(form);
+      fd.append('selectedSession', sessionId);
+      const r = await api(form.dataset.ep, { method:'POST', body: fd });
+      btn.disabled = false; btn.innerHTML = old;
+      if (r.success){ toast(r.message || 'Task started! 🚀', 'success'); if (r.redirect) go(r.redirect); }
+      else toast(r.error || 'Task start failed', 'error');
+    });
+  });
+  v.querySelector('#sendSession').addEventListener('change', () => {
+    panels.querySelectorAll('.tt-sel').forEach(tt => {
+      if (tt.value === 'group'){ const sel = tt.closest('.grid-2')?.querySelector('.tgt-box select'); if (sel) loadGroupsInto(sel); }
+    });
+  });
+  bindDropzones(v);
+  loadStats(); loadSessions(); every(20000, loadStats);
+  return v;
+}
+
+/* ═══════════════ SESSION STATUS ═══════════════ */
+function viewSessionStatus(){
+  const sessionId = new URLSearchParams(location.search).get('sessionId');
+  const v = el('div', '', shell('dash', 'Session Status', 'Live tasks, logs &amp; controls', `
+    <a href="/dashboard" data-link class="muted" style="font-size:13px">← Back to Dashboard</a>
+    <div id="ssHead" style="margin-top:14px"><span class="spinner"></span></div>
+    <div class="grid-2" style="margin-top:20px">
+      <div>
+        <div class="card-h"><h3>⚡ Tasks</h3><p>Pause • Resume • Stop • Live Logs</p></div>
+        <div id="ssTasks"></div>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <div class="card-h"><h3>👥 Group Participants</h3></div>
+          <div class="form-grid">
+            <select class="inp" id="gpGroup"><option value="">Select group…</option></select>
+            <button class="btn btn-ghost" id="gpLoad">📥 Load Participants</button>
+            <div id="gpResult" style="max-height:300px;overflow-y:auto"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>📣 Quick Tools</h3></div>
+          <a class="btn btn-primary btn-block" href="/tag-all?sessionId=${esc(sessionId || '')}" data-link>Open Tag-All →</a>
+        </div>
+      </div>
+    </div>
+  `));
+  bootShell(v, false);
+  if (!sessionId){ v.querySelector('#ssHead').innerHTML = '<div class="empty"><div class="ei">🤔</div>Session ID missing</div>'; return v; }
+
+  function openLogsModal(taskId, taskType){
+    openModal(`<div class="modal-h">${taskIcon(taskType)} Live Logs <span class="mono" style="font-size:12px;color:var(--muted)">${esc(taskId)}</span></div>
+      <div class="log-viewer" id="lvBox"><div class="center"><span class="spinner"></span></div></div>`, true);
+    async function pull(){
+      const r = await api(`/api/live-logs?sessionId=${encodeURIComponent(sessionId)}&taskId=${encodeURIComponent(taskId)}`);
+      const box = document.getElementById('lvBox');
+      if (!box || r.error) return;
+      box.innerHTML = (r.logs && r.logs.length)
+        ? r.logs.map(l => `<div class="log-line ${esc(l.type || 'info')}">${esc(l.message)}${l.details ? `<span class="ld">${esc(l.details)}</span>` : ''}</div>`).join('')
+        : '<div class="empty">Abhi koi log nahi…</div>';
+    }
+    pull(); modalEvery(2500, pull);
+  }
+
+  async function refresh(){
+    const r = await api('/api/live-status?sessionId=' + encodeURIComponent(sessionId));
+    if (r.error){ v.querySelector('#ssHead').innerHTML = `<div class="empty"><div class="ei">⛔</div>${esc(r.error)}</div>`; return; }
+    v.querySelector('#ssHead').innerHTML = `
+      <div class="card">
+        <div class="spread">
+          <div class="row">
+            <div class="avatar" style="width:56px;height:56px;font-size:25px">📱</div>
+            <div>
+              <div class="display" style="font-weight:600;font-size:21px">+${esc(r.number)}</div>
+              <div class="li-sub">Created ${esc(r.createdAtFormatted || '—')} • Active ${timeAgo(r.lastActivity)}</div>
+            </div>
+          </div>
+          <div class="row">
+            ${r.isConnected ? '<span class="badge b-green"><span class="dot g pulse"></span> CONNECTED</span>' : '<span class="badge b-red"><span class="dot r"></span> DISCONNECTED</span>'}
+            <span class="badge b-cyan">▶ ${r.runningTasksCount} running</span>
+            <button class="btn btn-danger btn-sm" id="stopSessBtn">🗑 Stop Session</button>
+          </div>
+        </div>
+      </div>`;
+    v.querySelector('#stopSessBtn').onclick = async () => {
+      if (!await confirmBox('Stop Session?', 'Session permanently delete ho jayega.')) return;
+      const x = await jsonPost('/stop-session', { sessionId });
+      toast(x.message || x.error, x.success ? 'success' : 'error');
+      if (x.success) go('/dashboard');
+    };
+    const tb = v.querySelector('#ssTasks');
+    if (!r.tasks || r.tasks.length === 0){
+      tb.innerHTML = '<div class="empty"><div class="ei">🌙</div>Koi task nahi chal raha</div>';
+    } else {
+      tb.innerHTML = r.tasks.map(t => {
+        const pct = t.totalMessages ? Math.min(100, Math.round((t.currentIndex / t.totalMessages) * 100)) : 0;
+        return `<div class="task-card">
+          <div class="task-head">
+            <div class="row"><span style="font-size:20px">${taskIcon(t.taskType)}</span>
+              <b>${esc(t.taskType.toUpperCase())}</b><span class="mono muted" style="font-size:11px">${esc(t.taskId)}</span></div>
+            ${t.isSending ? '<span class="badge b-green"><span class="dot g pulse"></span> RUNNING</span>' : '<span class="badge b-gray">⏸ IDLE</span>'}
+          </div>
+          <div class="task-meta">
+            <span>🎯 <b>${esc(t.targetType === 'group' ? 'Group' : 'Number')} • ${esc(t.target)}</b></span>
+            <span>📨 <b>${t.sentMessages}</b> sent</span><span>📚 Pool: <b>${t.totalMessages || '∞'}</b></span>
+          </div>
+          ${t.totalMessages ? `<div class="progress" style="margin-bottom:13px"><i style="width:${pct}%"></i></div>` : ''}
+          <div class="row">
+            <button class="btn btn-ghost btn-sm" data-act="logs" data-task="${esc(t.taskId)}" data-type="${esc(t.taskType)}">📜 Logs</button>
+            ${t.isSending
+              ? `<button class="btn btn-ghost btn-sm" data-act="pause" data-task="${esc(t.taskId)}">⏸ Pause</button>`
+              : `<button class="btn btn-primary btn-sm" data-act="resume" data-task="${esc(t.taskId)}">▶ Resume</button>`}
+            <button class="btn btn-danger btn-sm" data-act="stop" data-task="${esc(t.taskId)}">⏹ Stop</button>
+          </div>
+        </div>`;
+      }).join('');
+    }
+  }
+  v.querySelector('#ssTasks').addEventListener('click', async e => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const { act, task, type } = b.dataset;
+    if (act === 'logs') return openLogsModal(task, type);
+    if (act === 'stop' && !await confirmBox('Stop Task?', 'Task permanently delete ho jayega.')) return;
+    const ep = act === 'pause' ? '/pause-task' : act === 'resume' ? '/resume-task' : '/stop-task';
+    const r = await jsonPost(ep, { sessionId, taskId: task });
+    toast(r.message || r.error, r.success ? 'success' : 'error');
+    refresh();
+  });
+
+  (async () => {
+    const g = await api('/get-groups?sessionId=' + encodeURIComponent(sessionId));
+    if (g.success) v.querySelector('#gpGroup').innerHTML = '<option value="">Select group…</option>' +
+      g.groups.map(x => `<option value="${esc(x.groupId)}">${esc(x.subject)} (${x.participantsCount})</option>`).join('');
+  })();
+  v.querySelector('#gpLoad').onclick = async () => {
+    const gid = v.querySelector('#gpGroup').value, out = v.querySelector('#gpResult');
+    if (!gid) return toast('Group select karein', 'warning');
+    out.innerHTML = '<div class="center"><span class="spinner"></span></div>';
+    const r = await api(`/api/group-participants?sessionId=${encodeURIComponent(sessionId)}&groupId=${encodeURIComponent(gid)}`);
+    if (!r.success){ out.innerHTML = `<span class="badge b-red">${esc(r.error)}</span>`; return; }
+    out.innerHTML = `<p class="note" style="margin-bottom:8px"><b>${esc(r.subject)}</b> — ${r.total} members</p>
+      <div class="tbl-wrap"><table class="tbl" style="min-width:0"><thead><tr><th>#</th><th>Number</th><th>Role</th></tr></thead><tbody>
+      ${r.participants.map(p => `<tr><td>${p.index}</td><td class="mono">${esc(p.number)}</td>
+        <td>${p.isAdmin ? '<span class="badge b-amber">👑 Admin</span>' : '<span class="badge b-gray">Member</span>'}</td></tr>`).join('')}
+      </tbody></table></div>`;
+  };
+  refresh(); every(3000, refresh);
+  return v;
+}
+
+/* ═══════════════ TASK LOGS ═══════════════ */
+function viewTaskLogs(){
+  const v = el('div', '', shell('logs', 'Task Logs', 'Session &amp; task select karke live logs dekhein', `
+    <div class="card">
+      <div class="grid-2" style="margin-bottom:16px">
+        <label class="lbl">Session<select class="inp" id="tlSession"></select></label>
+        <label class="lbl">Task<select class="inp" id="tlTask"></select></label>
+      </div>
+      <div class="log-viewer" id="tlBox" style="min-height:240px"><div class="empty">Session select karein…</div></div>
+    </div>
+  `));
+  bootShell(v, false);
+  const ss = v.querySelector('#tlSession'), tk = v.querySelector('#tlTask'), box = v.querySelector('#tlBox');
+  (async () => {
+    const data = await api('/api/get-numbers');
+    if (!Array.isArray(data)) return;
+    const flat = data.flatMap(n => n.sessions.map(s => ({ ...s, number: n.number })));
+    ss.innerHTML = '<option value="">Select session…</option>' +
+      flat.map(s => `<option value="${esc(s.sessionId)}">${esc(s.number)} ${s.isConnected ? '🟢' : '🔴'}</option>`).join('');
+  })();
+  ss.onchange = async () => {
+    const sid = ss.value;
+    if (!sid){ tk.innerHTML = '<option value="">—</option>'; return; }
+    const r = await api('/api/live-status?sessionId=' + encodeURIComponent(sid));
+    tk.innerHTML = '<option value="">Select task…</option>' +
+      (r.tasks || []).map(t => `<option value="${esc(t.taskId)}">${taskIcon(t.taskType)} ${esc(t.taskId)} • ${t.sentMessages} sent ${t.isSending ? '🟢' : ''}</option>`).join('');
+  };
+  async function pull(){
+    const sid = ss.value, tid = tk.value;
+    if (!sid || !tid) return;
+    const r = await api(`/api/live-logs?sessionId=${encodeURIComponent(sid)}&taskId=${encodeURIComponent(tid)}`);
+    if (r.error) return;
+    box.innerHTML = (r.logs && r.logs.length)
+      ? r.logs.map(l => `<div class="log-line ${esc(l.type || 'info')}">${esc(l.message)}${l.details ? `<span class="ld">${esc(l.details)}</span>` : ''}</div>`).join('')
+      : '<div class="empty">Logs khali hain…</div>';
+  }
+  every(2500, pull);
+  return v;
+}
+
+/* ═══════════════ TAG ALL ═══════════════ */
+function viewTagAll(){
+  const pre = new URLSearchParams(location.search).get('sessionId') || '';
+  const v = el('div', '', shell('tag', 'Tag All', 'Group ke saare members ko ek message mein mention karein', `
+    <div class="card" style="max-width:680px">
+      <form id="tagForm" class="form-grid">
+        <label class="lbl">Session<select class="inp" id="tagSession"></select></label>
+        <label class="lbl">Group<select class="inp" id="tagGroup"><option value="">— session select karein —</option></select></label>
+        <label class="lbl">Message (optional)
+          <textarea class="inp" id="tagMsg" placeholder="Attention everyone! 👋"></textarea></label>
+        <button class="btn btn-primary" type="submit">📣 Send Tag-All</button>
+        <div id="tagResult"></div>
+      </form>
+    </div>
+  `));
+  bootShell(v, false);
+  const ss = v.querySelector('#tagSession'), gg = v.querySelector('#tagGroup');
+  async function loadGroups(){
+    const sid = ss.value; if (!sid) return;
+    gg.innerHTML = '<option value="">Loading groups…</option>';
+    const r = await api('/get-groups?sessionId=' + encodeURIComponent(sid));
+    gg.innerHTML = r.success
+      ? '<option value="">Select group…</option>' + r.groups.map(g => `<option value="${esc(g.groupId)}">${esc(g.subject)} (${g.participantsCount} 👥)</option>`).join('')
+      : `<option value="">${esc(r.error)}</option>`;
+  }
+  (async () => {
+    const data = await api('/api/get-numbers');
+    if (!Array.isArray(data)) return;
+    const flat = data.flatMap(n => n.sessions.map(s => ({ ...s, number: n.number })));
+    ss.innerHTML = '<option value="">Select session…</option>' +
+      flat.map(s => `<option value="${esc(s.sessionId)}" ${s.sessionId === pre ? 'selected' : ''}>${esc(s.number)} ${s.isConnected ? '🟢' : '🔴'}</option>`).join('');
+    if (pre) loadGroups();
+  })();
+  ss.onchange = loadGroups;
+  v.querySelector('#tagForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const out = v.querySelector('#tagResult');
+    const sessionId = ss.value, groupId = gg.value, message = v.querySelector('#tagMsg').value;
+    if (!sessionId || !groupId) return toast('Session aur group select karein', 'warning');
+    out.innerHTML = '<div class="center"><span class="spinner"></span></div>';
+    const r = await jsonPost('/api/tag-all', { sessionId, groupId, message });
+    out.innerHTML = r.success
+      ? `<span class="badge b-green">✅ "${esc(r.subject)}" mein ${r.total} members tag ho gaye</span>`
+      : `<span class="badge b-red">${esc(r.error)}</span>`;
+    toast(r.success ? 'Tag-all sent! 📣' : (r.error || 'Failed'), r.success ? 'success' : 'error');
+  });
+  return v;
+}
+
+/* ═══════════════ ADMIN ═══════════════ */
+function viewAdmin(){
+  const v = el('div', '', shell('admin', 'Lucifer Admin Panel', 'Server • Sessions • Users • Broadcast', `<div id="admBody"></div>`, true));
+  bootShell(v, true);
+  setCmd([
+    { ic:'🏠', label:'Home', go:'/' },
+    { ic:'⏻', label:'Logout', href:'/logout' },
+  ]);
+  const body = v.querySelector('#admBody');
+
+  function bindTableSearch(inputSel, tableSel){
+    const inp = v.querySelector(inputSel), tbl = v.querySelector(tableSel);
+    if (inp && tbl) inp.oninput = () => {
+      const q = inp.value.toLowerCase();
+      tbl.querySelectorAll('tbody tr').forEach(r => r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none');
+    };
+  }
+
+  async function admOverview(){
+    body.innerHTML = '<div class="center" style="padding:44px"><span class="spinner"></span></div>';
+    const s = await api('/api/admin/server-stats');
+    if (s.error){ body.innerHTML = `<div class="empty">${esc(s.error)}</div>`; return; }
+    body.innerHTML = `
+      <div class="stats-grid">
+        <div class="stat-card"><div class="ic">⏱</div><div class="val" style="font-size:17px;padding-top:8px">${esc(s.server.uptime)}</div><div class="lb">Uptime</div></div>
+        <div class="stat-card"><div class="ic">🧠</div><div class="val" style="font-size:17px;padding-top:8px">${esc(s.server.memory)}</div><div class="lb">Memory</div></div>
+        <div class="stat-card"><div class="ic">👥</div><div class="val">${s.users.total}</div><div class="lb">Users</div></div>
+        <div class="stat-card"><div class="ic">📱</div><div class="val">${s.sessions.total}</div><div class="lb">Sessions</div></div>
+        <div class="stat-card"><div class="ic">▶️</div><div class="val">${s.tasks.running}</div><div class="lb">Running</div></div>
+        <div class="stat-card"><div class="ic">📨</div><div class="val">${s.tasks.totalMessagesSent}</div><div class="lb">Sent</div></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>🖥 Server Info</h3></div>
+        <div class="grid-4">
+          <div><p class="note">NODE</p><b>${esc(s.server.nodeVersion)}</b></div>
+          <div><p class="note">PLATFORM</p><b>${esc(s.server.platform)}</b></div>
+          <div><p class="note">PID</p><b class="mono">${s.server.pid}</b></div>
+          <div><p class="note">CONNECTED</p><b>${s.sessions.connected} / ${s.sessions.total}</b></div>
+        </div>
+      </div>`;
+  }
+
+  async function admSessions(){
+    body.innerHTML = '<div class="center" style="padding:44px"><span class="spinner"></span></div>';
+    const list = await api('/api/admin/all-sessions');
+    if (!Array.isArray(list) || list.length === 0){ body.innerHTML = '<div class="empty"><div class="ei">📭</div>No sessions</div>'; return; }
+    body.innerHTML = `<div class="card">
+      <input class="inp" id="aSessSearch" placeholder="🔍 Search by number / user…" style="max-width:340px;margin-bottom:16px">
+      <div class="tbl-wrap"><table class="tbl" id="aSessTbl">
+        <thead><tr><th>Number</th><th>User</th><th>Status</th><th>Tasks</th><th>Sent</th><th>Active</th><th>Actions</th></tr></thead>
+        <tbody>${list.map(s => `<tr>
+          <td class="mono"><b>+${esc(s.number)}</b><br><span class="note">${esc(s.sessionId.slice(0,14))}…</span></td>
+          <td>${esc(s.username || '—')}</td>
+          <td>${s.isConnected ? '<span class="badge b-green">● ON</span>' : '<span class="badge b-red">● OFF</span>'}</td>
+          <td>${s.tasksCount} (${s.activeTasksCount} ▶)</td><td><b>${s.totalSent}</b></td>
+          <td>${timeAgo(s.lastActivity)}</td>
+          <td><div class="row">
+            <button class="btn btn-ghost btn-sm" data-adetails="${esc(s.sessionId)}">👁</button>
+            <button class="btn btn-danger btn-sm" data-adel="${esc(s.sessionId)}">🗑</button>
+          </div></td></tr>`).join('')}</tbody>
+      </table></div></div>`;
+    bindTableSearch('#aSessSearch', '#aSessTbl');
+  }
+
+  async function openSessionDetails(sid){
+    openModal(`<div class="modal-h">📱 Session Details</div><div id="sdBox"><div class="center"><span class="spinner"></span></div></div>`, true);
+    const r = await api('/api/admin/session-details?sessionId=' + encodeURIComponent(sid));
+    const box = document.getElementById('sdBox');
+    if (!box) return;
+    if (r.error){ box.innerHTML = `<span class="badge b-red">${esc(r.error)}</span>`; return; }
+    box.innerHTML = `
+      <div class="row" style="margin-bottom:14px">
+        <span class="badge ${r.isConnected ? 'b-green' : 'b-red'}">${r.isConnected ? '● CONNECTED' : '● DISCONNECTED'}</span>
+        <b class="mono">+${esc(r.number)}</b><span class="muted">by ${esc(r.username)}</span>
+      </div>
+      ${(!r.tasks || r.tasks.length === 0) ? '<div class="empty">No tasks</div>' : r.tasks.map(t => `
+        <div class="task-card">
+          <div class="task-head">
+            <div class="row">${taskIcon(t.taskType)} <b>${esc(t.taskType.toUpperCase())}</b> <span class="mono muted" style="font-size:11px">${esc(t.taskId)}</span></div>
+            <div class="row">
+              ${t.isSending ? '<span class="badge b-green">RUNNING</span>' : '<span class="badge b-gray">IDLE</span>'}
+              <button class="btn btn-ghost btn-sm" data-atlog="${esc(t.taskId)}">📜</button>
+              <button class="btn btn-danger btn-sm" data-adeltask="${esc(r.sessionId)}|${esc(t.taskId)}">🗑</button>
+            </div>
+          </div>
+          <div class="task-meta"><span>🎯 ${esc(t.target)}</span><span>📨 ${t.sentMessages}</span><span>📚 ${t.totalMessages || '∞'}</span></div>
+        </div>`).join('')}`;
+  }
+  function openTaskLogsAdmin(taskId){
+    openModal(`<div class="modal-h">📜 Logs — <span class="mono" style="font-size:13px">${esc(taskId)}</span></div>
+      <div class="log-viewer" id="atBox"><div class="center"><span class="spinner"></span></div></div>`, true);
+    async function pull(){
+      const r = await api('/api/admin/task-logs?taskId=' + encodeURIComponent(taskId));
+      const box = document.getElementById('atBox');
+      if (!box) return;
+      box.innerHTML = (r.logs && r.logs.length)
+        ? r.logs.map(l => `<div class="log-line ${esc(l.type || 'info')}">${esc(l.message)}${l.details ? `<span class="ld">${esc(l.details)}</span>` : ''}</div>`).join('')
+        : '<div class="empty">No logs</div>';
+    }
+    pull(); modalEvery(2500, pull);
+  }
+
+  async function admUsers(){
+    body.innerHTML = '<div class="center" style="padding:44px"><span class="spinner"></span></div>';
+    const r = await api('/api/admin/users');
+    if (!r.success){ body.innerHTML = `<div class="empty">${esc(r.error || 'Failed')}</div>`; return; }
+    body.innerHTML = `<div class="card">
+      <input class="inp" id="aUserSearch" placeholder="🔍 Search users…" style="max-width:340px;margin-bottom:16px">
+      <div class="tbl-wrap"><table class="tbl" id="aUserTbl">
+        <thead><tr><th>User</th><th>Email</th><th>Sessions</th><th>Tasks</th><th>Sent</th><th>Last Login</th><th>Actions</th></tr></thead>
+        <tbody>${r.users.map(u => `<tr>
+          <td><b>${esc(u.username)}</b><br><span class="note mono">${esc(u.userId)}</span></td>
+          <td>${esc(u.email)}</td>
+          <td>${u.activeSessions}🟢 / ${u.totalSessions}</td>
+          <td>${u.totalTasks}</td><td><b>${u.totalSent}</b></td>
+          <td>${u.lastLogin ? timeAgo(new Date(u.lastLogin).getTime()) : '—'}</td>
+          <td><div class="row">
+            <button class="btn btn-ghost btn-sm" data-apw="${esc(u.userId)}|${esc(u.username)}">🔑</button>
+            <button class="btn btn-danger btn-sm" data-audel="${esc(u.userId)}">🗑</button>
+          </div></td></tr>`).join('')}</tbody>
+      </table></div></div>`;
+    bindTableSearch('#aUserSearch', '#aUserTbl');
+  }
+  function openResetPw(userId, username){
+    openModal(`<div class="modal-h">🔑 Reset — ${esc(username)}</div>
+      <form id="rpForm" class="form-grid" style="margin-top:14px">
+        <label class="lbl">New Password<input class="inp" name="npw" minlength="6" required></label>
+        <button class="btn btn-violet btn-block" type="submit">Reset Password</button>
+      </form>`);
+    document.getElementById('rpForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const r = await jsonPost('/api/admin/reset-password', { userId, newPassword: new FormData(e.target).get('npw') });
+      toast(r.message || r.error, r.success ? 'success' : 'error');
+      if (r.success) closeModal();
+    });
+  }
+
+  function admBroadcast(){
+    body.innerHTML = `
+      <div class="card" style="max-width:660px">
+        <div class="card-h"><h3>📣 Admin Broadcast Override</h3>
+          <p>Saare connected sessions ke through target par message</p></div>
+        <form id="bcForm" class="form-grid">
+          <div class="grid-2">
+            <label class="lbl">Target Type
+              <select class="inp" name="targetType"><option value="number">📱 Number</option><option value="group">👥 Group</option></select></label>
+            <label class="lbl">Target<input class="inp" name="target" placeholder="917050407246 / group-id" required></label>
+          </div>
+          <label class="lbl">Message<textarea class="inp" name="message" required></textarea></label>
+          <button class="btn btn-violet" type="submit">📣 Fire Broadcast</button>
+          <div id="bcResult"></div>
+        </form>
+      </div>`;
+    document.getElementById('bcForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const fd = new FormData(e.target), out = document.getElementById('bcResult');
+      out.innerHTML = '<div class="center"><span class="spinner"></span></div>';
+      const r = await jsonPost('/api/admin/broadcast', { target: fd.get('target'), targetType: fd.get('targetType'), message: fd.get('message') });
+      if (!r.success){ out.innerHTML = `<span class="badge b-red">${esc(r.error)}</span>`; return; }
+      out.innerHTML = `
+        <div class="row" style="margin-bottom:12px">
+          <span class="badge b-green">✅ Sent: ${r.summary.sent}</span>
+          <span class="badge b-red">❌ Failed: ${r.summary.failed}</span>
+          <span class="badge b-gray">⏭ Skipped: ${r.summary.skipped}</span>
+        </div>
+        <div class="tbl-wrap"><table class="tbl" style="min-width:0"><thead><tr><th>Session</th><th>Status</th></tr></thead><tbody>
+        ${r.results.map(x => `<tr><td class="mono">${esc(x.sessionId.slice(0,18))}…</td>
+          <td>${x.status === 'sent' ? '<span class="badge b-green">SENT</span>' : x.status === 'failed' ? `<span class="badge b-red">${esc(x.error || 'FAILED')}</span>` : '<span class="badge b-gray">SKIPPED</span>'}</td></tr>`).join('')}
+        </tbody></table></div>`;
+    });
+  }
+
+  v.querySelector('#sidebar').addEventListener('click', e => {
+    const b = e.target.closest('[data-asec]'); if (!b) return;
+    v.querySelectorAll('[data-asec]').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    ({ overview: admOverview, sessions: admSessions, users: admUsers, broadcast: admBroadcast })[b.dataset.asec]();
+  });
+
+  v.addEventListener('click', async e => {
+    const del = e.target.closest('[data-adel]');
+    if (del){
+      if (!await confirmBox('Delete Session?', 'Session permanently delete ho jayega.')) return;
+      const r = await jsonPost('/api/admin/delete-session', { sessionId: del.dataset.adel });
+      toast(r.message || r.error, r.success ? 'success' : 'error');
+      if (r.success) admSessions();
+      return;
+    }
+    const det = e.target.closest('[data-adetails]');
+    if (det) return openSessionDetails(det.dataset.adetails);
+    const udel = e.target.closest('[data-audel]');
+    if (udel){
+      if (!await confirmBox('Delete User?', 'User aur uske saare sessions delete ho jayenge.')) return;
+      const r = await jsonPost('/api/admin/delete-user', { userId: udel.dataset.audel });
+      toast(r.message || r.error, r.success ? 'success' : 'error');
+      if (r.success) admUsers();
+      return;
+    }
+    const pw = e.target.closest('[data-apw]');
+    if (pw){ const [id, name] = pw.dataset.apw.split('|'); return openResetPw(id, name); }
+    const tlog = e.target.closest('[data-atlog]');
+    if (tlog) return openTaskLogsAdmin(tlog.dataset.atlog);
+    const dtask = e.target.closest('[data-adeltask]');
+    if (dtask){
+      const [sid, tid] = dtask.dataset.adeltask.split('|');
+      if (!await confirmBox('Delete Task?', 'Task permanently delete ho jayega.')) return;
+      const r = await jsonPost('/api/admin/delete-task', { sessionId: sid, taskId: tid });
+      toast(r.message || r.error, r.success ? 'success' : 'error');
+      if (r.success) openSessionDetails(sid);
+    }
+  });
+
+  admOverview();
+  return v;
+}
+
+/* ── boot ── */
+render();
+window.addEventListener('load', () => setTimeout(() => document.getElementById('splash').classList.add('off'), 800));
+</script>
+</body>
+</html>
